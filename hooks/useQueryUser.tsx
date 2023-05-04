@@ -8,7 +8,12 @@ const useQueryUser = () => {
   const { userInputData } = useStore()
   const getUser = async () => {
     const { data } = await axios.get(
-      `https://public-api.tracker.gg/v2/apex/standard/profile/${userInputData.platform}/${userInputData.userId}`
+      `https://public-api.tracker.gg/v2/apex/standard/profile/${userInputData.platform}/${userInputData.userId}`,
+      {
+        headers: {
+          'TRN-Api-Key': process.env.APEX_TRACKER_API_KEY,
+        },
+      }
     )
     return data
   }
