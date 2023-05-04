@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from '@mantine/core'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
