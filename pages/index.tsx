@@ -1,10 +1,9 @@
-import { SearchBox } from '@/components/SearchBox'
-import { SubmitButton } from '@/components/SubmitButton'
+import { SearchPage } from './searchPage'
 
 export default function Home() {
   return (
     <div>
-      <SubmitButton />
+      <SearchPage />
     </div>
   )
 }

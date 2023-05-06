@@ -8,7 +8,6 @@ export const SearchBox = () => {
       <TextInput
         radius="xl"
         size="md"
-        className="w-3/5"
         placeholder="ユーザーIDを入力してください"
         onChange={(e) => setInputValue(e.currentTarget.value)}
         value={inputValue}
