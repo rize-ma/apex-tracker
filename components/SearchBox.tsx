@@ -1,8 +1,12 @@
 import { TextInput } from '@mantine/core'
-import { useState } from 'react'
+import { Dispatch, FC, SetStateAction, useState } from 'react'
 
-export const SearchBox = () => {
-  const [inputValue, setInputValue] = useState('')
+type Props = {
+  inputValue: string
+  setInputValue: Dispatch<SetStateAction<string>>
+}
+
+export const SearchBox: FC<Props> = ({ inputValue, setInputValue }) => {
   return (
     <div>
       <TextInput
