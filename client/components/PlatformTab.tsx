@@ -1,8 +1,12 @@
 import { SegmentedControl } from '@mantine/core'
-import { useState } from 'react'
+import { Dispatch, FC, SetStateAction, useState } from 'react'
 
-export const PlatformTab = () => {
-  const [platform, setPlatform] = useState('origin')
+type Props = {
+  platform: string
+  setPlatform: Dispatch<SetStateAction<string>>
+}
+
+export const PlatformTab: FC<Props> = ({ platform, setPlatform }) => {
   const PLATFORM_DATA = [
     { label: 'origin', value: 'origin' },
     { label: 'xbox', value: 'xbl' },
