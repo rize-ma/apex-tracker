@@ -18,6 +18,7 @@ const SearchPage: NextPage = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('押された')
     const data = await searchUser(platform, userId)
     if (data.message) {
       setErrorMessage(data.message)
@@ -44,15 +45,15 @@ const SearchPage: NextPage = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center justify-center">
           <PlatformTab platform={platform} setPlatform={setPlatform} />
-          <div className="mt-10 flex w-full items-center justify-center">
-            <div className="mr-9 w-96">
+          <div className="m-10 flex w-full items-center justify-center">
+            <div className="ml-2 mr-9 w-full">
               <SearchBox
                 inputValue={userId}
                 setInputValue={setUserId}
                 placeholder="ユーザーIDを入力してください"
               />
             </div>
-            <SubmitButton />
+            <SubmitButton inputValue={userId} />
           </div>
         </div>
       </form>

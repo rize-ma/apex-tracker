@@ -1,8 +1,12 @@
 import { Button } from '@mantine/core'
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { IconSearch } from '@tabler/icons-react'
 
-export const SubmitButton = () => {
+type Props = {
+  inputValue: string
+}
+
+export const SubmitButton: FC<Props> = ({ inputValue }) => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -17,6 +21,7 @@ export const SubmitButton = () => {
         type="submit"
         radius="lg"
         leftIcon={<IconSearch fontSize={14} />}
+        disabled={inputValue ? false : true}
       >
         {isMobile ? null : '検索する'}
       </Button>
