@@ -26,7 +26,7 @@ export class ApexTrackerService {
       );
       return data;
     } catch (e: any) {
-      return { message: 'ユーザが見つかりませんでした' };
+      return { data: { message: 'ユーザが見つかりませんでした' } };
     }
   }
 }

@@ -2,23 +2,31 @@ import { Layout } from '@/components/Layout'
 import { PlatformTab } from '@/components/PlatformTab'
 import { SearchBox } from '@/components/SearchBox'
 import { SubmitButton } from '@/components/SubmitButton'
+import useStore from '@/store'
 import { searchUser } from '@/utils/searchUser'
 import { Alert } from '@mantine/core'
 import { NextPage } from 'next'
 import { FormEvent, useState } from 'react'
+import { useRouter } from 'next/router'
 
-export const SearchPage: NextPage = () => {
+const SearchPage: NextPage = () => {
   const [platform, setPlatform] = useState('origin')
-  const [inputValue, setInputValue] = useState('')
+  const [userId, setUserId] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const setUserData = useStore((state) => state.updateUserData)
+  const router = useRouter()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const data = await searchUser(platform, inputValue)
+    const data = await searchUser(platform, userId)
     if (data.message) {
       setErrorMessage(data.message)
       return
     }
+    setUserData(data)
+    router.push(`/dashboard?platform=${platform}&userId=${userId}`)
+    setPlatform('origin')
+    setUserId('')
   }
   return (
     <Layout title="ユーザー検索">
@@ -39,8 +47,9 @@ export const SearchPage: NextPage = () => {
           <div className="mt-10 flex w-full items-center justify-center">
             <div className="mr-9 w-96">
               <SearchBox
-                inputValue={inputValue}
-                setInputValue={setInputValue}
+                inputValue={userId}
+                setInputValue={setUserId}
+                placeholder="ユーザーIDを入力してください"
               />
             </div>
             <SubmitButton />
@@ -50,3 +59,5 @@ export const SearchPage: NextPage = () => {
     </Layout>
   )
 }
+
+export default SearchPage
