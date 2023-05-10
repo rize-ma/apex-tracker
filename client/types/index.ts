@@ -1,4 +1,7 @@
-export type UserInputData = {
-  platform: string
-  userId: string
+export type UserData = {
+  availableSegments: Array<object>
+  metadata: object
+  platformInfo: object
+  segments: object
+  userInfo: object
 }

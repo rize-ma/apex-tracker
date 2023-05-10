@@ -1,22 +1,40 @@
 import create from 'zustand'
-import { UserInputData } from '@/types'
+import { UserData } from '@/types'
 
 type State = {
-  userInputData: UserInputData
-  updateUserInputData: (payload: UserInputData) => void
+  userData: UserData
+  updateUserData: (payload: UserData) => void
   resetEditedTask: () => void
 }
 
 const useStore = create<State>((set) => ({
-  userInputData: { platform: '', userId: '' },
-  updateUserInputData: (payload) =>
+  userData: {
+    availableSegments: [],
+    metadata: {},
+    platformInfo: {},
+    segments: {},
+    userInfo: {},
+  },
+  updateUserData: (payload) =>
     set({
-      userInputData: {
-        platform: payload.platform,
-        userId: payload.userId,
+      userData: {
+        availableSegments: payload.availableSegments,
+        metadata: payload.metadata,
+        platformInfo: payload.platformInfo,
+        segments: payload.segments,
+        userInfo: payload.userInfo,
       },
     }),
-  resetEditedTask: () => set({ userInputData: { platform: '', userId: '' } }),
+  resetEditedTask: () =>
+    set({
+      userData: {
+        availableSegments: [],
+        metadata: {},
+        platformInfo: {},
+        segments: {},
+        userInfo: {},
+      },
+    }),
 }))
 
 export default useStore
