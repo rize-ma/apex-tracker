@@ -11,18 +11,22 @@ export class ApexTrackerService {
   ) {}
 
   async getUser(platform: string, userId: string) {
-    const data = await lastValueFrom(
-      this.http
-        .get(
-          `${this.config.get('APEX_TRACKER_API_URL')}/${platform}/${userId}`,
-          {
-            headers: {
-              'TRN-Api-Key': this.config.get('APEX_TRACKER_API_KEY'),
+    try {
+      const data = await lastValueFrom(
+        this.http
+          .get(
+            `${this.config.get('APEX_TRACKER_API_URL')}/${platform}/${userId}`,
+            {
+              headers: {
+                'TRN-Api-Key': this.config.get('APEX_TRACKER_API_KEY'),
+              },
             },
-          },
-        )
-        .pipe(map((response) => response.data)),
-    );
-    return data;
+          )
+          .pipe(map((response) => response.data)),
+      );
+      return data;
+    } catch (e: any) {
+      return { message: 'ユーザが見つかりませんでした' };
+    }
   }
 }
