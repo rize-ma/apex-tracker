@@ -18,10 +18,13 @@ const SearchPage: NextPage = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('押された')
     const data = await searchUser(platform, userId)
     if (data.message) {
       setErrorMessage(data.message)
+      return
+    }
+    if (!data) {
+      setErrorMessage('ユーザーが見つかりませんでした')
       return
     }
     setUserData(data)

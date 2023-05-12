@@ -12,7 +12,7 @@ const useStore = create<State>((set) => ({
     availableSegments: [],
     metadata: {},
     platformInfo: {},
-    segments: {},
+    segments: [],
     userInfo: {},
   },
   updateUserData: (payload) =>
@@ -31,7 +31,7 @@ const useStore = create<State>((set) => ({
         availableSegments: [],
         metadata: {},
         platformInfo: {},
-        segments: {},
+        segments: [],
         userInfo: {},
       },
     }),
