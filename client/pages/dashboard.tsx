@@ -39,6 +39,9 @@ const Dashboard: NextPage = () => {
         </div>
         <div className="absolute left-4 top-1/2">
           <UserIcon />
+          <div className="mt-4 text-2xl">
+            <span>{userData.platformInfo.platformUserId}</span>
+          </div>
         </div>
       </div>
     </Layout>
