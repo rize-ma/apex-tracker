@@ -11,7 +11,13 @@ const useStore = create<State>((set) => ({
   userData: {
     availableSegments: [],
     metadata: {},
-    platformInfo: {},
+    platformInfo: {
+      platformSlug: '',
+      platformUserId: '',
+      platformUserHandle: '',
+      platformUserIdentifier: '',
+      avatarUrl: '',
+    },
     segments: [],
     userInfo: {},
   },
@@ -30,7 +36,13 @@ const useStore = create<State>((set) => ({
       userData: {
         availableSegments: [],
         metadata: {},
-        platformInfo: {},
+        platformInfo: {
+          platformSlug: '',
+          platformUserId: '',
+          platformUserHandle: '',
+          platformUserIdentifier: '',
+          avatarUrl: '',
+        },
         segments: [],
         userInfo: {},
       },
