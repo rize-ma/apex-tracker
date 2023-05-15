@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const UserHeader: FC = () => {
   const { userData } = useStore()
   const imageHeaderUrl =
-    userData.segments[1].metadata.bgImageUrl ||
+    userData.segments[1]?.metadata.bgImageUrl ||
     'https://trackercdn.com/cdn/apex.tracker.gg/legends/wraith-concept-bg-small.jpg'
   return (
     <div>
