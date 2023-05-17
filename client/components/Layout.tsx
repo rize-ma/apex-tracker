@@ -12,7 +12,7 @@ export const Layout: FC<Props> = ({ children, title = 'ApexTracker' }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <main className=" flex w-screen flex-1 flex-col items-center justify-center">
+      <main className="flex w-screen flex-1 flex-col items-center justify-center">
         {children}
       </main>
     </div>

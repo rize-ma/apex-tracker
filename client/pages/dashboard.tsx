@@ -7,6 +7,7 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { searchUser } from '@/utils/searchUser'
 import { useEffect } from 'react'
+import { UserStatus } from '@/components/UserStatus'
 
 const Dashboard: NextPage = () => {
   const { userData } = useStore()
@@ -39,8 +40,13 @@ const Dashboard: NextPage = () => {
         </div>
         <div className="absolute left-4 top-1/2">
           <UserIcon />
-          <div className="mt-4 text-2xl">
-            <span>{userData.platformInfo.platformUserId}</span>
+          <div className="mt-4">
+            <span className="text-2xl">
+              {userData.platformInfo.platformUserId}
+            </span>
+          </div>
+          <div className="mt-9">
+            <UserStatus />
           </div>
         </div>
       </div>
