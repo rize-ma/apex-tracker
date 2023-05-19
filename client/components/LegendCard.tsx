@@ -13,6 +13,7 @@ export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
   const legendId = legendData.attributes.id
 
   const userStatusArr = Object.entries(legendData.stats)
+
   return (
     <div className="m-5 min-w-350">
       <Card radius="md" className="p-6">
@@ -26,15 +27,21 @@ export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
           ) : null}
         </Center>
         <div className="mt-6 flex flex-wrap">
-          {userStatusArr.map((status) => (
-            <div className="m-6 flex" key={status[0]}>
-              <div className="h-16 w-1 rounded-full bg-slate-300"></div>
-              <div className="ml-3 flex flex-col justify-around">
-                <span className="font-semibold">{status[0]}</span>
-                <span>{status[1].value.toLocaleString()}</span>
+          {userStatusArr.length ? (
+            userStatusArr.map((status) => (
+              <div className="m-6 flex" key={status[0]}>
+                <div className="h-16 w-1 rounded-full bg-slate-300"></div>
+                <div className="ml-3 flex flex-col justify-around">
+                  <span className="font-semibold">{status[0]}</span>
+                  <span>{status[1].value.toLocaleString()}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <Center>
+              <div className="text-size-10">データなし</div>
+            </Center>
+          )}
         </div>
       </Card>
     </div>
