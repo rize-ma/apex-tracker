@@ -8,6 +8,8 @@ import { useRouter } from 'next/router'
 import { searchUser } from '@/utils/searchUser'
 import { useEffect } from 'react'
 import { UserStatus } from '@/components/UserStatus'
+import { LegendStatus } from '@/components/LegendStatus'
+import { Center } from '@mantine/core'
 
 const Dashboard: NextPage = () => {
   const { userData } = useStore()
@@ -34,20 +36,23 @@ const Dashboard: NextPage = () => {
 
   return (
     <Layout title="ユーザーページ">
-      <div className="absolute top-0">
+      <div className="absolute top-0 w-full">
         <div>
           <UserHeader />
         </div>
-        <div className="absolute left-4 top-1/2">
+        <div className="absolute left-4 top-1/2 w-[calc(100%_-_16px)]">
           <UserIcon />
           <div className="mt-4">
             <span className="text-2xl">
               {userData.platformInfo.platformUserId}
             </span>
           </div>
-          <div className="mt-9">
+          <div className="mt-9 w-fit">
             <UserStatus />
           </div>
+          <Center className="mt-10">
+            <LegendStatus />
+          </Center>
         </div>
       </div>
     </Layout>

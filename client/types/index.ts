@@ -13,3 +13,20 @@ type PlatformInfo = {
   platformUserIdentifier: string
   avatarUrl: string
 }
+
+export type LegendData = {
+  type: string
+  attributes: object
+  metadata: LegendMetaData
+  stats: object
+}
+
+type LegendMetaData = {
+  name: string
+  imageUrl: string
+  tallImageUrl: string
+  bgImageUrl: string
+  portraitImageUrl: string
+  legendColor: string
+  isActive: boolean
+}
