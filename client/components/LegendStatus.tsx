@@ -6,13 +6,18 @@ import { LegendData } from '@/types'
 
 export const LegendStatus: FC = () => {
   const { userData } = useStore()
+  const activeLegendId = userData.metadata.activeLegend
   if (!userData.segments.length) return <Loader />
   userData.segments.shift()
   const legendData = userData.segments
   return (
     <div className="max-w-500">
       {legendData.map((data: LegendData) => (
-        <LegendCard key={data.metadata.name} legendData={data} />
+        <LegendCard
+          key={data.metadata.name}
+          legendData={data}
+          activeLegendId={activeLegendId}
+        />
       ))}
     </div>
   )

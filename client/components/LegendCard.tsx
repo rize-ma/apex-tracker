@@ -4,20 +4,26 @@ import React, { FC } from 'react'
 
 type Props = {
   legendData: LegendData
+  activeLegendId: string
 }
 
-export const LegendCard: FC<Props> = ({ legendData }) => {
+export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
   const avatarImg = legendData.metadata.portraitImageUrl
   const legendName = legendData.metadata.name
+  const legendId = legendData.attributes.id
+
   const userStatusArr = Object.entries(legendData.stats)
   return (
-    <div className="min-w-350 m-5">
+    <div className="m-5 min-w-350">
       <Card radius="md" className="p-6">
         <Avatar src={avatarImg} size={80} radius={80} mx="auto" />
-        <Center>
+        <Center className="flex items-end">
           <Text size={'lg'} weight={'bold'} className="mt-3">
             {legendName}
           </Text>
+          {activeLegendId === legendId ? (
+            <div className="ml-3 rounded-2xl bg-red-500 p-1">選択中</div>
+          ) : null}
         </Center>
         <div className="mt-6 flex flex-wrap">
           {userStatusArr.map((status) => (
