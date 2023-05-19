@@ -9,7 +9,7 @@ export const UserHeader: FC = () => {
     'https://trackercdn.com/cdn/apex.tracker.gg/legends/wraith-concept-bg-small.jpg'
   return (
     <div>
-      <header className="relative h-40 w-screen">
+      <header className="relative h-40 w-full">
         <Image src={imageHeaderUrl} alt="User Header" fill></Image>
       </header>
     </div>
