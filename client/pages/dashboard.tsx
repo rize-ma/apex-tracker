@@ -50,9 +50,9 @@ const Dashboard: NextPage = () => {
           <div className="mt-9 w-fit">
             <UserStatus />
           </div>
-          <Center className="mt-10">
+          <div className="mt-10 w-fit">
             <LegendStatus />
-          </Center>
+          </div>
         </div>
       </div>
     </Layout>
