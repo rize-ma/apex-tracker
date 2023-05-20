@@ -11,7 +11,7 @@ export const LegendStatus: FC = () => {
   userData.segments.shift()
   const legendData = userData.segments
   return (
-    <div className="max-w-500">
+    <div className="flex flex-wrap ">
       {legendData.map((data: LegendData) => (
         <LegendCard
           key={data.metadata.name}

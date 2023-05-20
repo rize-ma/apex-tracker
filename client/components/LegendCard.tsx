@@ -15,8 +15,8 @@ export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
   const userStatusArr = Object.entries(legendData.stats)
 
   return (
-    <div className="m-5 min-w-350">
-      <Card radius="md" className="p-6">
+    <div className="m-5 min-w-300">
+      <Card radius="md" className="min-h-300 p-6">
         <Avatar src={avatarImg} size={80} radius={80} mx="auto" />
         <Center className="flex items-end">
           <Text size={'lg'} weight={'bold'} className="mt-3">
