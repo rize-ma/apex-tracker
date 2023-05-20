@@ -9,13 +9,16 @@ import { searchUser } from '@/utils/searchUser'
 import { useEffect } from 'react'
 import { UserStatus } from '@/components/UserStatus'
 import { LegendStatus } from '@/components/LegendStatus'
-import { Center } from '@mantine/core'
 
 const Dashboard: NextPage = () => {
   const { userData } = useStore()
   const setUserData = useStore((state) => state.updateUserData)
   const router = useRouter()
   const { platform, userId } = router.query
+
+  const backSearchPage = () => {
+    router.push('/')
+  }
 
   useEffect(() => {
     const hasUserData = (data: UserData) => {
@@ -42,10 +45,13 @@ const Dashboard: NextPage = () => {
         </div>
         <div className="absolute left-4 top-1/2 w-[calc(100%_-_16px)]">
           <UserIcon />
-          <div className="mt-4">
+          <div className="mt-4 flex items-end">
             <span className="text-2xl">
               {userData.platformInfo.platformUserId}
             </span>
+            <div className="ml-7 cursor-pointer" onClick={backSearchPage}>
+              <span className="underline">検索ページへ</span>
+            </div>
           </div>
           <div className="mt-9 w-fit">
             <UserStatus />
