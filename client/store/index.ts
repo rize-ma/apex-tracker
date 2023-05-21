@@ -10,7 +10,14 @@ type State = {
 const useStore = create<State>((set) => ({
   userData: {
     availableSegments: [],
-    metadata: {},
+    metadata: {
+      currentSeason: 0,
+      activeLegend: '',
+      activeLegendName: '',
+      activeLegendStats: [],
+      isGameBanned: false,
+      isOverwolfAppUser: false,
+    },
     platformInfo: {
       platformSlug: '',
       platformUserId: '',
@@ -35,7 +42,14 @@ const useStore = create<State>((set) => ({
     set({
       userData: {
         availableSegments: [],
-        metadata: {},
+        metadata: {
+          currentSeason: 0,
+          activeLegend: '',
+          activeLegendName: '',
+          activeLegendStats: [],
+          isGameBanned: false,
+          isOverwolfAppUser: false,
+        },
         platformInfo: {
           platformSlug: '',
           platformUserId: '',
