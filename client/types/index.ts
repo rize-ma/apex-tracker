@@ -1,10 +1,8 @@
-import { array } from 'yup'
-
 export type UserData = {
   availableSegments: Array<object>
   metadata: MetaData
   platformInfo: PlatformInfo
-  segments: Array<any>
+  segments: Array<UsersegmentsData>
   userInfo: object
 }
 
@@ -25,11 +23,13 @@ type MetaData = {
   isOverwolfAppUser: boolean
 }
 
+type UsersegmentsData = LegendData
+
 export type LegendData = {
   type: string
   attributes: Attributes
   metadata: LegendMetaData
-  stats: object
+  stats: LegendStats
 }
 
 type Attributes = {
@@ -44,4 +44,23 @@ type LegendMetaData = {
   portraitImageUrl: string
   legendColor: string
   isActive: boolean
+}
+type LegendStats = {
+  rankScore: RankScore
+}
+
+type RankScore = {
+  rank: number
+  percentile: number
+  displayName: string
+  displayCategory: string
+  category: any
+  description: any
+  metadata: {
+    iconUrl: string
+    rankName: string
+  }
+  value: number
+  displayValue: string
+  displayType: string
 }
