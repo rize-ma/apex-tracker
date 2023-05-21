@@ -8,8 +8,7 @@ export const LegendStatus: FC = () => {
   const { userData } = useStore()
   const activeLegendId = userData.metadata.activeLegend
   if (!userData.segments.length) return <Loader />
-  userData.segments.shift()
-  const legendData = userData.segments
+  const legendData = userData.segments.slice(1)
   return (
     <div className="flex flex-wrap ">
       {legendData.map((data: LegendData) => (
