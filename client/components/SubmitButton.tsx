@@ -20,10 +20,16 @@ export const SubmitButton: FC<Props> = ({ inputValue }) => {
         color="syan"
         type="submit"
         radius="lg"
-        leftIcon={<IconSearch fontSize={14} />}
         disabled={inputValue ? false : true}
       >
-        {isMobile ? null : '検索する'}
+        {isMobile ? (
+          <IconSearch fontSize={14} />
+        ) : (
+          <div className="flex items-center">
+            <IconSearch fontSize={14} />
+            <span>検索する</span>
+          </div>
+        )}
       </Button>
     </div>
   )
