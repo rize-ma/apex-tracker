@@ -1,9 +1,12 @@
 import { FC } from 'react'
-import useStore from '@/store'
 import Image from 'next/image'
+import { UserData } from '@/types'
 
-export const UserHeader: FC = () => {
-  const { userData } = useStore()
+type Props = {
+  userData: UserData
+}
+
+export const UserHeader: FC<Props> = ({ userData }) => {
   const getLegendHeader = () => {
     const activeLegendId = userData.metadata.activeLegend
     let legendHeader

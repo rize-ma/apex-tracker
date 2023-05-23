@@ -1,10 +1,13 @@
 import { FC } from 'react'
-import useStore from '@/store'
 import Image from 'next/image'
 import { Loader } from '@mantine/core'
+import { UserData } from '@/types'
 
-export const UserStatus: FC = () => {
-  const { userData } = useStore()
+type Props = {
+  userData: UserData
+}
+
+export const UserStatus: FC<Props> = ({ userData }) => {
   if (!userData.segments.length) return <Loader />
   const rankData = userData.segments[0].stats.rankScore
   const rankImg = rankData.metadata.iconUrl

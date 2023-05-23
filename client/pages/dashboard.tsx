@@ -22,7 +22,7 @@ const Dashboard: NextPage = () => {
 
   useEffect(() => {
     const hasUserData = (data: UserData) => {
-      return !Object.keys(data.metadata).length
+      return !data.segments.length
     }
 
     const getUserData = async (platform: string, userId: string) => {
@@ -41,10 +41,10 @@ const Dashboard: NextPage = () => {
     <Layout title="ユーザーページ">
       <div className="absolute top-0 w-full">
         <div>
-          <UserHeader />
+          <UserHeader userData={userData} />
         </div>
         <div className="absolute left-4 top-1/2 w-[calc(100%_-_16px)]">
-          <UserIcon />
+          <UserIcon userData={userData} />
           <div className="mt-4 flex items-end">
             <span className="text-2xl">
               {userData.platformInfo.platformUserId}
@@ -54,10 +54,10 @@ const Dashboard: NextPage = () => {
             </div>
           </div>
           <div className="mt-9 w-fit">
-            <UserStatus />
+            <UserStatus userData={userData} />
           </div>
           <div className="mt-10 w-fit">
-            <LegendStatus />
+            <LegendStatus userData={userData} />
           </div>
         </div>
       </div>
