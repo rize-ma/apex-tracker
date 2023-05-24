@@ -12,7 +12,7 @@ export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
   const legendName = legendData.metadata.name
   const legendId = legendData.attributes.id
 
-  const userStatusArr = Object.entries(legendData.stats)
+  const legendStatusArr = Object.entries(legendData.stats)
 
   return (
     <div className="m-5 min-w-300">
@@ -27,8 +27,8 @@ export const LegendCard: FC<Props> = ({ legendData, activeLegendId }) => {
           ) : null}
         </Center>
         <div className="mt-6 flex flex-wrap">
-          {userStatusArr.length ? (
-            userStatusArr.map((status) => (
+          {legendStatusArr.length ? (
+            legendStatusArr.map((status) => (
               <div className="m-6 flex" key={status[0]}>
                 <div className="h-16 w-1 rounded-full bg-slate-300"></div>
                 <div className="ml-3 flex flex-col justify-around">
