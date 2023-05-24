@@ -11,7 +11,17 @@ type Props = {
 export const LegendStatus: FC<Props> = ({ userData }) => {
   const activeLegendId = userData.metadata.activeLegend
   if (!userData.segments.length) return <Loader />
-  const legendData = userData.segments.slice(1)
+  const getLegendData = (userData: UserData) => {
+    let legendArr = userData.segments.slice(1)
+    legendArr.forEach((data, index) => {
+      if (data.metadata.isActive) {
+        legendArr.splice(index, 1)
+        legendArr.unshift(data)
+      }
+    })
+    return legendArr
+  }
+  const legendData = getLegendData(userData)
   return (
     <div className="flex flex-wrap ">
       {legendData.map((data: LegendData) => (
