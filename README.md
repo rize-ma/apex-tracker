@@ -1,4 +1,4 @@
-# apex-tracker
+# APEX Tracker
 こちらはAPEXというゲームのプレイヤー情報を検索することができるWEBアプリです
 ### アクセス
 [こちら](https://apex-tracker-nine.vercel.app/)からアクセス可能です  
@@ -16,7 +16,7 @@
   - axios
   - zustand
   - vercel
-  ##### フロントエンド
+  ##### バックエンド
   - node.js(Nest.js)
   - axios
  ### 作成した経緯
