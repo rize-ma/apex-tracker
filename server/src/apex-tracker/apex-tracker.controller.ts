@@ -5,6 +5,11 @@ import { ApexTrackerService } from './apex-tracker.service';
 export class ApexTrackerController {
   constructor(private readonly apexTracker: ApexTrackerService) {}
 
+  @Get('first')
+  InitialAccess() {
+    return { data: { message: 'アクセス成功' } };
+  }
+
   @Get(':platform/:userId')
   getUser(
     @Param('platform') platform: string,
