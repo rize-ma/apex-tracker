@@ -1,5 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApexTrackerService } from './apex-tracker.service';
+import { ErrorMessage, UserData } from './type/user';
 
 @Controller('apex-tracker')
 export class ApexTrackerController {
@@ -14,7 +15,7 @@ export class ApexTrackerController {
   getUser(
     @Param('platform') platform: string,
     @Param('userId') userId: string,
-  ) {
+  ): Promise<UserData | ErrorMessage> {
     return this.apexTracker.getUser(platform, userId);
   }
 }
