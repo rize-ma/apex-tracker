@@ -1,5 +1,6 @@
 # APEX Tracker
 こちらはAPEXというゲームのプレイヤー情報を検索することができるWEBアプリです
+APIKeyの使用期限が過ぎてしまっていてので現在使用不可
 ### アクセス
 [こちら](https://apex-tracker-nine.vercel.app/)からアクセス可能です  
   ##### 検索  
